@@ -14,6 +14,8 @@ def generate_email(n:int = 1):
     emails_list = json.loads(req.get(first_.format(str(n))).text)
 
     return emails_list
+
+
 def id_mailinbox(mail:str):
     '''
     :param mail: an mail generated from 1secmail using
@@ -34,7 +36,10 @@ def id_mailinbox(mail:str):
         returns id of the last inboxed mail. if you need a 
         different id you can export it from resp list.
     '''
+    
     return id,resp
+
+
 def email_content(mail:str,id:int, html:bool = False):
     '''
     :param id: mail's id
@@ -54,4 +59,6 @@ def email_content(mail:str,id:int, html:bool = False):
     subject = response["subject"]
     if html: content = response["htmlBody"]
     else: content = response["textBody"]
+        
     return  subject,sender,content
+
